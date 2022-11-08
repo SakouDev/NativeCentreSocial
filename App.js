@@ -25,7 +25,7 @@ export default function App() {
 
   return (
     <NativeRouter>
-      <HeaderLarge/>  
+      <HeaderLarge/>
 
       <Routes>
         <Route exact path="/" element={<Login/>} />
@@ -33,7 +33,7 @@ export default function App() {
       </Routes>
 
       <StatusBar backgroundColor="#003147" />
-      
+
       <Footer/>
     </NativeRouter>
   );

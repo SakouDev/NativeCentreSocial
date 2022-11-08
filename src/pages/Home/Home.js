@@ -8,9 +8,9 @@ import {HomeStyle} from './HomeStyle'
 export default function Home() {
   return (
     <View style={HomeStyle.container}>
-          <Link to={'/'}>
-            <Text>Menfou</Text>
-          </Link>
+      <Link to={'/'}>
+        <Text>Menfou</Text>
+      </Link>
     </View>
   )
 }
