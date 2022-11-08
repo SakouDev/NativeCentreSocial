@@ -1,32 +1,48 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Link, NativeRouter, Route, Routes } from 'react-router-native';
+import Footer from './src/components/Footer/Footer';
 import Header from './src/components/Header/Header';
 import HeaderLarge from './src/components/HeaderLarge/HeaderLarge';
 import Loader from './src/components/Loader/Loader';
+import Contact from './src/pages/Contact/Contact';
+import Home from './src/pages/Home/Home';
+import Login from './src/pages/Login/Login';
 
 export default function App() {
 
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 4000) 
+  }, [])
+  
   if (loading) return <Loader />
 
   return (
-    <View style={styles.container}>
-      {/* <Header/> */}
-      <HeaderLarge/>
+    <NativeRouter>
+      <HeaderLarge/>  
 
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar
-        backgroundColor="#003147"
-      />
-    </View>
+      <Routes>
+        <Route exact path="/" element={<Login/>} />
+        <Route exact path="/home" element={<Home/>} />
+      </Routes>
+
+      <StatusBar backgroundColor="#003147" />
+      
+      <Footer/>
+    </NativeRouter>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    height : '100%',
+    width : '100%',
     backgroundColor: '#fff',
     alignItems: 'center',
   },

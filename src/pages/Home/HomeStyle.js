@@ -3,9 +3,12 @@ const window = Dimensions.get('window').width
 
 export const HomeStyle = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: '#003147',
+        height : '100%',
+        width : '100%',
+        backgroundColor: '#fff',
         alignItems: 'center',
-        justifyContent: 'center',
     },
+    body: {
+        margin : 10
+    }
 });
