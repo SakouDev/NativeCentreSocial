@@ -5,7 +5,7 @@ const window = Dimensions.get('window').width
 export const HeaderStyle = StyleSheet.create({
     container: {
         marginTop : StatusBar.currentHeight,
-        height : "8%",
+        height : "7%",
         width : "100%",
         backgroundColor: '#003147',
         display : 'flex',
