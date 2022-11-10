@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import {Image, SafeAreaView, Text, TextInput, View} from "react-native";
 import {RegisterStyle} from "./RegisterStyle";
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import IonIcons from 'react-native-vector-icons/Ionicons';
 
 const Register = () => {
-
-
-
 
     return (
         <View style={RegisterStyle.container}>
