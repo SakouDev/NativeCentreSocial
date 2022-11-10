@@ -1,38 +1,42 @@
 import React, {useState, useEffect} from 'react';
 import {Image, SafeAreaView, Text, TextInput, View} from "react-native";
 import {RegisterStyle} from "./RegisterStyle";
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import IonIcons from 'react-native-vector-icons/Ionicons';
+import {LoginStyle} from "../Login/LoginStyle";
 
 const Register = () => {
 
     return (
-        <View style={RegisterStyle.container}>
-
-            <View style={RegisterStyle.topDiv}>
+<>
+        <View style={LoginStyle.topDiv}>
             <Image
-                style = {RegisterStyle.image}
-                source={require('../../assets/img/girl2bis.png')}
+                style = {LoginStyle.image}
+                source={require('../../assets/img/girl.png')}
             />
         </View>
-            <View style={RegisterStyle.botDiv}>
-            </View>
 
+        <View style={RegisterStyle.container}>
+            <Text>Adresse Mail</Text>
+                <TextInput
+                    style={RegisterStyle.input}
+                    keyboardType="email-address"
+                 />
+                <Text>Mot de passe</Text>
+                <TextInput
+                    style={RegisterStyle.input}
+                    placeholder="MOT DE PASSE"
+                    secureTextEntry={true}
+                    keyboardType="password"
+                />
 
-
-
-            <TextInput
-                style={RegisterStyle.input}
-                keyboardType="email-address"
-            />
-
-            <TextInput
-                style={RegisterStyle.input}
-                placeholder="MOT DE PASSE"
-                secureTextEntry={true}
-                keyboardType="password"
-            />
+                <Text>Confirmation mot de passe</Text>
+                <TextInput
+                    style={RegisterStyle.input}
+                    placeholder="MOT DE PASSE"
+                    secureTextEntry={true}
+                    keyboardType="password"
+                />
         </View>
+</>
     );
 };
 export default Register;

@@ -9,6 +9,7 @@ import Loader from './src/components/Loader/Loader';
 import Contact from './src/pages/Contact/Contact';
 import Home from './src/pages/Home/Home';
 import Login from './src/pages/Login/Login';
+import Register from "./src/pages/Register/Register";
 
 export default function App() {
 
@@ -30,6 +31,7 @@ export default function App() {
         <Routes>
           <Route exact path="/" element={<Login/>} />
           <Route exact path="/home" element={<Home/>} />
+          <Route exact path="/register" element={<Register/>} />
         </Routes>
 
         <StatusBar backgroundColor="#003147" />

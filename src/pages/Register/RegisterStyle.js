@@ -5,32 +5,20 @@ export const RegisterStyle = StyleSheet.create({
     container: {
         height : '86%',
         width : '100%',
-        backgroundColor: 'black',
+        backgroundColor: 'white',
         alignItems: 'center',
-        justifyContent: 'center',
-    },
-    topDiv:{
-        height: '25%',
-        width: '100%',
-    },
-    botDiv:{
-        height: '75%',
-        width: '100%',
-    },
-
-    image : {
-        height : "100%",
-        width : "100%",
+        marginTop: 100
     },
 
     input:{
         alignSelf: "center",
-        width: '65%',
+        width: '70%',
         borderWidth: 0.4,
         borderColor: "grey",
         borderRadius: 5,
         backgroundColor: "white",
         elevation : 10,
         margin: 15,
+        height: 35,
     }
 });
