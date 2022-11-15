@@ -2,23 +2,23 @@ import React from 'react'
 import { Image, Text, TextInput, View } from 'react-native'
 import { Link } from 'react-router-native'
 
-import {LoginStyle} from './LoginStyle'
+import { LoginStyle } from './LoginStyle'
 
 export default function Login() {
 
-  
+
 
     return (
         <View style={LoginStyle.container}>
             <View style={LoginStyle.topDiv}>
                 <Image
-                    style = {LoginStyle.image}
-                    source={require('../../assets/img/girl.png')} 
+                    style={LoginStyle.image}
+                    source={require('../../assets/img/girl.png')}
                 />
             </View>
             <View style={LoginStyle.botDiv}>
 
-                <Text style={[LoginStyle.textColor,LoginStyle.title]}>Connexion</Text>
+                <Text style={[LoginStyle.textColor, LoginStyle.title]}>Connexion</Text>
 
                 <View style={LoginStyle.loginGroup}>
                     <Text style={LoginStyle.titleInput}>Adresse Mail</Text>
@@ -29,6 +29,9 @@ export default function Login() {
                     <TextInput style={LoginStyle.input} textAlign={'center'}>
                         <Text style={LoginStyle.inputText}>*************</Text>
                     </TextInput>
+                    <Link to={'/lostpass'}>
+                        <Text style={{ textAlign: "right", paddingHorizontal: 20, }}>Mot de passe oublié ?</Text>
+                    </Link>
                 </View>
 
                 <View style={LoginStyle.buttonGroup}>

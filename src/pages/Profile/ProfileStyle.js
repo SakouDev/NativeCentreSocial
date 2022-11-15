@@ -41,6 +41,8 @@ export const ProfileStyle = StyleSheet.create({
         borderWidth: 1,
         padding: 10,
         borderRadius: 5,
+        elevation: 10,
+        backgroundColor: "white",
     },
     selected: {
         height: 40,

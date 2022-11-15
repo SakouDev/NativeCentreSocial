@@ -6,7 +6,7 @@ export default function SuccessModif() {
     return (
         <View>
             <View style={{ justifyContent: "center", backgroundColor: "#c1ecbe", alignItems: "center", marginVertical: 40, padding: 30, borderRadius: 10, }}>
-                <Text style={{ color: "#305f13", marginVertical: 20 }} >Votre pofil a été modifié avec succés.</Text>
+                <Text style={{ color: "#305f13", marginVertical: 20 }} >Votre profil a été modifié avec succés.</Text>
                 <Text style={{ color: "#305f13", marginVertical: 20 }}>votre candidature est valable jusqu'au : </Text>
                 <Text style={{ color: "#305f13", marginVertical: 20 }}>JJ/MM/AAAA</Text>
                 <Text style={{ color: "#305f13", marginVertical: 20 }}>Vous recevrez un mail une semaine avant la fin de la date de validité de votre profil.</Text>

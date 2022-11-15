@@ -9,6 +9,7 @@ import Loader from './src/components/Loader/Loader';
 import Contact from './src/pages/Contact/Contact';
 import Home from './src/pages/Home/Home';
 import Login from './src/pages/Login/Login';
+import LostPass from './src/pages/Lostpass/Lostpass';
 import Profile from './src/pages/Profile/Profile'
 
 export default function App() {
@@ -32,6 +33,7 @@ export default function App() {
         <Route exact path="/" element={<Login/>} />
         <Route exact path="/home" element={<Home/>} />
         <Route exact path="/profile" element={<Profile/>} />
+        <Route exact path="/lostpass" element={<LostPass />}></Route>
       </Routes>
 
       <StatusBar backgroundColor="#003147" />
