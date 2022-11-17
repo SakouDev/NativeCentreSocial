@@ -1,71 +1,67 @@
 import { View, Text, Pressable } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { styles } from './ProfileDiplomeStyle'
 import { Ionicons } from '@expo/vector-icons';
 import { Picker } from '@react-native-picker/picker';
+import Checkbox from 'expo-checkbox';
+import { ApiService } from '../../api/axios'
 
 
-export default function ProfileDiplome() {
+export default function ProfileDiplome({ data, setData }) {
 
     const [checked, onChange] = useState(false);
     const [selectedState, setSelectedState] = useState();
+    const [diplomes, setDiplomes] = useState();
+    const [diplomesData, setDiplomesData] = useState();
 
-    function onCheckmarkPress() {
-        onChange(!checked);
+    useEffect(() => {
+        const diplomes = data?.User.Diplomes.map(element => {
+            return {
+                id: `${element.id}`
+            }
+        })
+        setDiplomes(diplomes);
+
+        ApiService.get('diplomes').then(element => setDiplomesData(element.data.data))
+    }, [data])
+
+    console.log(diplomesData.certificate);
+
+    const handleChangeDiplome = (event) => {
+        event.target.checked ?
+            setDiplomes(
+                [...diplomes,
+                {
+                    id: event.target.value
+                }
+                ]
+            )
+            :
+            setDiplomes(diplomes.filter(element => element.id != event.target.value))
     }
-
-
 
     return (
         <View>
             <Text style={styles.title}>Mes diplômes</Text>
 
 
+            {diplomesData?.map((id, element) => (
+                <View style={styles.certificateRow}>
+                    <Checkbox
+                        key={id}
+                        name={element.certificate}
+                        value={element.id}
+                        // defaultChecked = {diplo.find(helper => helper.id == element.id)?true:false}
+                        style={styles.checkboxBase}
+                        onPress={handleChangeDiplome}
 
-            <View style={styles.certificateRow}>
-                <Pressable
-                    style={[styles.checkboxBase, checked && styles.checkboxChecked]}
-                    onPress={onCheckmarkPress}>
-                    {checked && <Ionicons name="checkmark" size={24} color="white" />}
-                </Pressable>
+                    />
 
-                <Text>BAFA</Text>
-                <Picker
-                    selectedValue={selectedState}
-                    style={{ width: "40%" }}
-                    onValueChange={(itemValue, itemIndex) =>
-                        setSelectedState(itemValue)
-                    }>
-                    <Picker.Item label="En cours" value="en-cours" />
-                    <Picker.Item label="Terminé" value="terminé" />
-                </Picker>
 
-                {/* <Ionicons name="calendar" size={24} color="black" /> */}
+                    <Text>{element?.certificate} Tada</Text>
 
-            </View>
-
-            <View style={{ flexDirection: "row", justifyContent: "space-around", alignItems: "center", borderColor: "grey", borderWidth: 1, borderRadius: 10, marginVertical: 5, }}>
-                <Pressable
-                    style={[styles.checkboxBase, checked && styles.checkboxChecked]}
-                    onPress={onCheckmarkPress}>
-                    {checked && <Ionicons name="checkmark" size={24} color="white" />}
-                </Pressable>
-
-                <Text>BAFA</Text>
-                <Picker
-                    selectedValue={selectedState}
-                    style={{ width: "40%" }}
-                    onValueChange={(itemValue, itemIndex) =>
-                        setSelectedState(itemValue)
-                    }>
-                    <Picker.Item label="En cours" value="en-cours" />
-                    <Picker.Item label="Terminé" value="terminé" />
-                </Picker>
-
-                {/* <Ionicons name="calendar" size={24} color="black" /> */}
-
-            </View>
-
+                </View>
+            ))}
 
 
         </View>

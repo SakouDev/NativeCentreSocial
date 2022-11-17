@@ -64,7 +64,7 @@ export const LoginStyle = StyleSheet.create({
     input:{
         alignSelf: "center",
         width: '65%',
-        height : '16%',
+        height : 40,
         borderWidth: 0.4,
         borderColor: "grey",
         borderRadius: 5,

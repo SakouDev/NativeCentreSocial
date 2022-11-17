@@ -3,13 +3,14 @@ const window = Dimensions.get('window').width
 
 export const styles = StyleSheet.create({
     certificateRow: {
-        flexDirection: "row", 
-        justifyContent: "space-around", 
+        flexDirection: "row",
+        height:40, 
+        justifyContent: "space-evenly", 
         alignItems: "center", 
         borderColor: "grey", 
         borderWidth: 1, 
         borderRadius: 10, 
-        marginVertical: 5,
+        marginVertical: 10,
     },
 
     title: {

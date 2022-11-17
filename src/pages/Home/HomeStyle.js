@@ -7,6 +7,7 @@ export const HomeStyle = StyleSheet.create({
         width : '100%',
         backgroundColor: '#fff',
         alignItems: 'center',
+        paddingBottom: 150
     },
     body: {
         margin : 10

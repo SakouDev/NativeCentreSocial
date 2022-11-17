@@ -6,15 +6,28 @@ import ProfileDiplome from '../../components/ProfileDiplome/ProfileDiplome'
 import ProfileDispo from '../../components/ProfileDispo/ProfileDispo'
 import ProfileGenerale from '../../components/ProfileGenerale/ProfileGenerale'
 import { ProfileStyle } from './ProfileStyle'
+import { ApiService } from '../../api/axios'
 
 
 export default function Profile() {
   const [profilePage, setProfilePage] = useState(1)
+  const [data, setData] = useState()
+
 
   useEffect(() => {
-    console.log(profilePage);
+    // console.log(profilePage);
     
   }, [profilePage])
+
+
+
+  // // Les candidats
+      useEffect(() => {
+        ApiService.get('candidats/2')
+        .then(element => setData(element.data.data))
+        // console.log(data);
+
+    }, [])
 
   return (
     <View style={ProfileStyle.container}>
@@ -31,9 +44,9 @@ export default function Profile() {
         <Text style={[ProfileStyle.textColor, ProfileStyle.title]}>Modifier mon profil</Text>
 
     {/* <ProfilePage profilePage={profilePage} /> */}
-    <ProfileGenerale />
-    <ProfileDiplome />
-    <ProfileDispo />
+    {/* <ProfileGenerale data={data} setData={setData} /> */}
+    <ProfileDiplome data={data} setData={setData} />
+    {/* <ProfileDispo /> */}
 
         <View style={{ margin: 30, flexDirection: "row", justifyContent: "center" }}>
           <Pressable style={ProfileStyle.pagination} onClick={() => setProfilePage(prevCount => prevCount - 1)} ><Text>Prev</Text></Pressable>
@@ -43,7 +56,7 @@ export default function Profile() {
           <Pressable style={ProfileStyle.pagination} onClick={() => setProfilePage(prevCount => prevCount + 1)} ><Text>Next</Text></Pressable>
         </View>
 
-        <SuccessModif />
+        {/* <SuccessModif /> */}
 
       </ScrollView>
     </View>

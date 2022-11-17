@@ -1,11 +1,25 @@
-import React from 'react'
-import { Image, Text, TextInput, View } from 'react-native'
+import React, { useEffect } from 'react'
+import { Image, Text, TextInput, View, Button, Alert } from 'react-native'
 import { Link } from 'react-router-native'
+import { ApiService } from '../../api/axios'
+import { useForm, Controller } from "react-hook-form";
 
 import { LoginStyle } from './LoginStyle'
 
 export default function Login() {
 
+    // useEffect(() => {
+    //     ApiService.get('candidats').then(element => console.log(element))
+    // }, [])
+
+
+    const { control, handleSubmit, formState: { errors } } = useForm({
+        defaultValues: {
+            mail: '',
+            password: ''
+        }
+    });
+    const onSubmit = data => console.log(data);
 
 
     return (
@@ -22,20 +36,48 @@ export default function Login() {
 
                 <View style={LoginStyle.loginGroup}>
                     <Text style={LoginStyle.titleInput}>Adresse Mail</Text>
-                    <TextInput style={LoginStyle.input} textAlign={'center'}>
-                        <Text style={LoginStyle.inputText}>adresse@gmail.com</Text>
-                    </TextInput>
+                    <Controller
+                        control={control}
+                        rules={{
+                            required: true,
+                        }}
+                        render={({ field: { onChange, onBlur, value } }) => (
+                            <TextInput
+                                style={LoginStyle.input}
+                                onBlur={onBlur}
+                                onChangeText={onChange}
+                                value={value}
+                            />
+                        )}
+                        name="mail"
+                    />
+                    {errors.mail && <Text style={{ color: "red", textAlign: "center" }}>Ce champs est requis.</Text>}
+
                     <Text style={LoginStyle.titleInput}>Mot de passe</Text>
-                    <TextInput style={LoginStyle.input} textAlign={'center'}>
-                        <Text style={LoginStyle.inputText}>*************</Text>
-                    </TextInput>
+                    <Controller
+                        control={control}
+                        rules={{
+                            required: true,
+                        }}
+                        render={({ field: { onChange, onBlur, value } }) => (
+                            <TextInput
+                                style={LoginStyle.input}
+                                secureTextEntry={true}
+                                onBlur={onBlur}
+                                onChangeText={onChange}
+                                value={value}
+                            />
+                        )}
+                        name="password"
+                    />
+                    {errors.password && <Text style={{ color: "red", textAlign: "center" }}>Ce champs est requis.</Text>}
                     <Link to={'/lostpass'}>
                         <Text style={{ textAlign: "right", paddingHorizontal: 20, }}>Mot de passe oublié ?</Text>
                     </Link>
                 </View>
 
                 <View style={LoginStyle.buttonGroup}>
-                    <Link to={'/home'} style={LoginStyle.buttonLog}>
+                    <Link to={'/home'} /*onPress={handleSubmit(onSubmit)}*/ style={LoginStyle.buttonLog}>
                         <Text style={LoginStyle.textWhite}>Connexion</Text>
                     </Link>
                     <Link to={'/register'} style={LoginStyle.buttonSign}>
