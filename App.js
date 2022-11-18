@@ -6,6 +6,7 @@ import Footer from './src/components/Footer/Footer';
 import Header from './src/components/Header/Header';
 import HeaderLarge from './src/components/HeaderLarge/HeaderLarge';
 import Loader from './src/components/Loader/Loader';
+import Candidat from './src/pages/Candidat/Candidat';
 import Contact from './src/pages/Contact/Contact';
 import Home from './src/pages/Home/Home';
 import Login from './src/pages/Login/Login';
@@ -36,6 +37,7 @@ export default function App() {
         <Route exact path="/profile" element={<Profile />} />
         <Route exact path="/lostpass" element={<LostPass />} />
         <Route exact path="/searchcandidats" element={<SearchCandidats />} />
+        <Route path="/candidat" element={<Candidat />} />
       </Routes>
 
       <StatusBar backgroundColor="#003147" />

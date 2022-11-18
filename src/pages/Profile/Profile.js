@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Image, Text, View, ScrollView, Pressable, Button } from 'react-native'
 import SuccessModif from '../../components/SucessModif/SuccessModif'
-import ProfilePage from './ProfilePage'
+
 import ProfileDiplome from '../../components/ProfileDiplome/ProfileDiplome'
 import ProfileDispo from '../../components/ProfileDispo/ProfileDispo'
 import ProfileGenerale from '../../components/ProfileGenerale/ProfileGenerale'
@@ -10,24 +10,79 @@ import { ApiService } from '../../api/axios'
 
 
 export default function Profile() {
-  const [profilePage, setProfilePage] = useState(1)
-  const [data, setData] = useState()
+
+  const [data, setData] = useState(
+    {
+      "id": 1,
+      "firstName": "Luc",
+      "lastName": "Vigneron",
+      "birthday": "27/04/1999",
+      "UserId": 1,
+      "createdAt": "2022-11-18T17:56:48.302Z",
+      "updatedAt": "2022-11-18T17:56:48.302Z",
+      "User": {
+        "id": 1,
+        "mail": "test@test.com",
+        "phone": null,
+        "visibility": true,
+        "address": "9 rue du régiment de la chaudière",
+        "zipCode": "62200",
+        "city": "Boulogne-sur Mer",
+        "role": "Candidat",
+        "image": "http://www.rien.com",
+        "createdAt": "2022-11-18T17:56:48.300Z",
+        "updatedAt": "2022-11-18T17:56:48.300Z",
+        "Diplomes": [
+          {
+            "id": 1,
+            "certificate": "BAFA",
+            "createdAt": "2022-11-18T17:56:48.235Z",
+            "updatedAt": "2022-11-18T17:56:48.235Z",
+            "UserDiplome": {
+              "createdAt": "2022-11-18T17:56:50.720Z",
+              "updatedAt": "2022-11-18T17:56:50.720Z",
+              "UserId": 1,
+              "DiplomeId": 1
+            }
+          }
+        ],
+        "Disponibilites": [
+          {
+            "id": 3,
+            "namePeriod": "Mercredi",
+            "createdAt": "2022-11-18T17:56:48.298Z",
+            "updatedAt": "2022-11-18T17:56:48.298Z",
+            "UserDispo": {
+              "createdAt": "2022-11-18T17:56:50.399Z",
+              "updatedAt": "2022-11-18T17:56:50.399Z",
+              "UserId": 1,
+              "DisponibiliteId": 3
+            }
+          },
+          {
+            "id": 8,
+            "namePeriod": "Vacances de Fevrier",
+            "createdAt": "2022-11-18T17:56:48.298Z",
+            "updatedAt": "2022-11-18T17:56:48.298Z",
+            "UserDispo": {
+              "createdAt": "2022-11-18T17:56:49.408Z",
+              "updatedAt": "2022-11-18T17:56:49.408Z",
+              "UserId": 1,
+              "DisponibiliteId": 8
+            }
+          }
+        ]
+      }
+    }
+  )
 
 
-  useEffect(() => {
-    // console.log(profilePage);
-    
-  }, [profilePage])
-
-
-
-  // // Les candidats
-      useEffect(() => {
-        ApiService.get('candidats/1')
-        .then(element => setData(element.data.data))
-        // console.log(data);
-
-    }, [])
+  // // // Les candidats
+  // useEffect(() => {
+  //   ApiService.get('candidats/1')
+  //     .then(element => setData(element.data.data))
+  //   // console.log(data);
+  // }, [])
 
   return (
     <View style={ProfileStyle.container}>
@@ -43,19 +98,9 @@ export default function Profile() {
 
         <Text style={[ProfileStyle.textColor, ProfileStyle.title]}>Modifier mon profil</Text>
 
-    {/* <ProfilePage profilePage={profilePage} /> */}
-    <ProfileGenerale data={data} setData={setData} />
-    <ProfileDiplome data={data} setData={setData} />
-    <ProfileDispo data={data} setData={setData} />
-
-        {/* <View style={{ margin: 30, flexDirection: "row", justifyContent: "center" }}>
-          <Pressable style={ProfileStyle.pagination} onClick={() => setProfilePage(prevCount => prevCount - 1)} ><Text>Prev</Text></Pressable>
-          <Pressable style={ProfileStyle.pagination} onClick={() => setProfilePage(1)} ><Text>1</Text></Pressable>
-          <Pressable style={ProfileStyle.pagination} onClick={() => setProfilePage(2)}><Text>2</Text></Pressable>
-          <Pressable style={ProfileStyle.pagination} onClick={() => setProfilePage(3)}><Text>3</Text></Pressable>
-          <Pressable style={ProfileStyle.pagination} onClick={() => setProfilePage(prevCount => prevCount + 1)} ><Text>Next</Text></Pressable>
-        </View> */}
-
+        <ProfileGenerale data={data} setData={setData} />
+        <ProfileDiplome data={data} setData={setData} />
+        <ProfileDispo data={data} setData={setData} />
         {/* <SuccessModif /> */}
 
       </ScrollView>

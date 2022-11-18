@@ -1,11 +1,18 @@
 import { StyleSheet, Text, View, Image, Switch } from 'react-native'
-import React, { useState } from 'react'
-
+import React, { useEffect, useState } from 'react'
+import { ApiService } from '../../api/axios'
+import { Link } from 'react-router-native'
+import Candidat from '../Candidat/Candidat'
 
 export default function SearchCandidats() {
 
-    const [isEnabled, setIsEnabled] = useState(false);
-    const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+    const [candidats, setCandidats] = useState([])
+
+    useEffect(() => {
+        ApiService.get('candidats')
+            .then(element => setCandidats(element.data.data))
+
+    }, [])
 
     return (
         <View style={styles.container}>
@@ -20,14 +27,20 @@ export default function SearchCandidats() {
                 <Text style={[styles.textColor, styles.title]}>Profils candidats</Text>
                 <Text style={[styles.textColor, styles.center]} >Ici vous trouverez tous les profils de candidats</Text>
 
-                <View style={{ flexDirection: 'row', justifyContent: "space-between", alignItems: "center", borderWidth: 0.3, height: 50, width: "80%", paddingLeft: -20, margin: 20 ,borderRadius:25}}>
-                    <Image
-                        style={styles.imgcand}
-                        source={require('../../assets/img/girl2.png')}
-                    />
-                    <Text>Olivia Boyer</Text>
-                    <Switch onValueChange={toggleSwitch} value={isEnabled} />
-                </View>
+
+                {candidats.map((candidat, id) => {
+                    return (
+                        <View key={id} style={{ flexDirection: 'row', margin: 20, justifyContent: "center", alignItems: "center", }} >
+                            <Image
+                                style={styles.imgcand}
+                                source={require('../../assets/img/girl2.png')}
+                            />
+                            <Link to={'/candidat'}  element={<Candidat candid={candidat.id} />} >
+                                <Text style={{ borderWidth: 0.3, height: 50, width: 200, borderRadius: 25, textAlign: "center", zIndex: 1, paddingHorizontal:50 }}> {candidat.firstName} {candidat.lastName} {candidat.id}</Text>
+                            </Link>
+                        </View>
+                    );
+                })}
 
             </View>
         </View>
@@ -71,8 +84,10 @@ const styles = StyleSheet.create({
         height: 80,
         width: 80,
         borderRadius: 50,
-        borderWidth:5,
-        borderColor:"#003147"
+        borderWidth: 5,
+        borderColor: "#003147",
+        margin: -30,
+        zIndex: 2
     },
     LinkProfile: {
         alignSelf: "center",

@@ -10,8 +10,7 @@ import { ApiService } from '../../api/axios'
 export default function ProfileDiplome({ data, setData }) {
 
     //Vérifier l'utilité
-    const [checked, onChange] = useState(false);
-    const [selectedState, setSelectedState] = useState();
+    const [checked, setChecked] = useState({});
 
     const [diplomesCandidats, setDiplomesCandidats] = useState([]);
     const [diplomesData, setDiplomesData] = useState();
@@ -53,10 +52,10 @@ export default function ProfileDiplome({ data, setData }) {
 
                     <View style={styles.certificateRow} key={id}>
                         <Checkbox
-                            value={diplomesCandidats?.find(helper => helper.id == element.id) ? true : false}
+                            value={ diplomesCandidats?.find(helper => helper.id == element.id) ? true : false}
                             // style={styles.checkboxBase}
-                            onValueChange={handleChangeDiplome} 
-                        />
+                            onValueChange={(newValue) => { setChecked({...checked, true: false}) }}
+                        />                 
 
 
                         <Text style={{ paddingHorizontal: 40 }}>{element.certificate}</Text>
