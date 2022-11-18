@@ -5,12 +5,13 @@ export const styles = StyleSheet.create({
     certificateRow: {
         flexDirection: "row",
         height:40, 
-        justifyContent: "space-evenly", 
+        justifyContent:"flex-start",
         alignItems: "center", 
         borderColor: "grey", 
         borderWidth: 1, 
         borderRadius: 10, 
         marginVertical: 10,
+        paddingHorizontal:40,
     },
 
     title: {

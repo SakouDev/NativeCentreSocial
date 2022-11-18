@@ -21,4 +21,16 @@ export const ProfileDispoStyle = StyleSheet.create({
         justifyContent:"center", 
         alignItems:"center"
     },
+    certificateRow: {
+        flexDirection: "row",
+        height:40,
+        width: "40%",
+        justifyContent:"flex-start",
+        alignItems: "center", 
+        borderColor: "grey", 
+        borderWidth: 1, 
+        borderRadius: 10, 
+        margin: 10,
+        paddingHorizontal:10,
+    },
 });

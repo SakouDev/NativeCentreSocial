@@ -23,7 +23,7 @@ export default function Profile() {
 
   // // Les candidats
       useEffect(() => {
-        ApiService.get('candidats/2')
+        ApiService.get('candidats/1')
         .then(element => setData(element.data.data))
         // console.log(data);
 
@@ -44,17 +44,17 @@ export default function Profile() {
         <Text style={[ProfileStyle.textColor, ProfileStyle.title]}>Modifier mon profil</Text>
 
     {/* <ProfilePage profilePage={profilePage} /> */}
-    {/* <ProfileGenerale data={data} setData={setData} /> */}
+    <ProfileGenerale data={data} setData={setData} />
     <ProfileDiplome data={data} setData={setData} />
-    {/* <ProfileDispo /> */}
+    <ProfileDispo data={data} setData={setData} />
 
-        <View style={{ margin: 30, flexDirection: "row", justifyContent: "center" }}>
+        {/* <View style={{ margin: 30, flexDirection: "row", justifyContent: "center" }}>
           <Pressable style={ProfileStyle.pagination} onClick={() => setProfilePage(prevCount => prevCount - 1)} ><Text>Prev</Text></Pressable>
           <Pressable style={ProfileStyle.pagination} onClick={() => setProfilePage(1)} ><Text>1</Text></Pressable>
           <Pressable style={ProfileStyle.pagination} onClick={() => setProfilePage(2)}><Text>2</Text></Pressable>
           <Pressable style={ProfileStyle.pagination} onClick={() => setProfilePage(3)}><Text>3</Text></Pressable>
           <Pressable style={ProfileStyle.pagination} onClick={() => setProfilePage(prevCount => prevCount + 1)} ><Text>Next</Text></Pressable>
-        </View>
+        </View> */}
 
         {/* <SuccessModif /> */}
 

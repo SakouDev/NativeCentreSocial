@@ -9,35 +9,38 @@ import { ApiService } from '../../api/axios'
 
 export default function ProfileDiplome({ data, setData }) {
 
+    //Vérifier l'utilité
     const [checked, onChange] = useState(false);
     const [selectedState, setSelectedState] = useState();
-    const [diplomes, setDiplomes] = useState();
+
+    const [diplomesCandidats, setDiplomesCandidats] = useState([]);
     const [diplomesData, setDiplomesData] = useState();
 
     useEffect(() => {
-        const diplomes = data?.User.Diplomes.map(element => {
+        const diplomesCandidats = data?.User.Diplomes.map(element => {
             return {
-                id: `${element.id}`
+                id: `${element.id}`,
+                certificate: `${element.certificate}`
             }
         })
-        setDiplomes(diplomes);
+        setDiplomesCandidats(diplomesCandidats);
+        // console.log(diplomes)
 
         ApiService.get('diplomes').then(element => setDiplomesData(element.data.data))
     }, [data])
 
-    console.log(diplomesData.certificate);
 
     const handleChangeDiplome = (event) => {
         event.target.checked ?
-            setDiplomes(
-                [...diplomes,
+            setDiplomesCandidats(
+                [...diplomesCandidats,
                 {
                     id: event.target.value
                 }
                 ]
             )
             :
-            setDiplomes(diplomes.filter(element => element.id != event.target.value))
+            setDiplomesCandidats(diplomesCandidats.filter(element => element.id != event.target.value))
     }
 
     return (
@@ -45,23 +48,22 @@ export default function ProfileDiplome({ data, setData }) {
             <Text style={styles.title}>Mes diplômes</Text>
 
 
-            {diplomesData?.map((id, element) => (
-                <View style={styles.certificateRow}>
-                    <Checkbox
-                        key={id}
-                        name={element.certificate}
-                        value={element.id}
-                        // defaultChecked = {diplo.find(helper => helper.id == element.id)?true:false}
-                        style={styles.checkboxBase}
-                        onPress={handleChangeDiplome}
+            {diplomesData?.map((element, id) => {
+                return (
 
-                    />
+                    <View style={styles.certificateRow} key={id}>
+                        <Checkbox
+                            value={diplomesCandidats?.find(helper => helper.id == element.id) ? true : false}
+                            // style={styles.checkboxBase}
+                            onValueChange={handleChangeDiplome} 
+                        />
 
 
-                    <Text>{element?.certificate} Tada</Text>
-
-                </View>
-            ))}
+                        <Text style={{ paddingHorizontal: 40 }}>{element.certificate}</Text>
+                        {/* <Ionicons name="calendar" size={24} color="black" /> */}
+                    </View>
+                );
+            })}
 
 
         </View>
