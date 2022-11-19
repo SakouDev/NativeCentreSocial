@@ -24,14 +24,15 @@ export const LoginStyle = StyleSheet.create({
         alignItems : "center",
     },
     buttonLog: {
-        height: "50%",
+        height: 50,
         width: "35%",
         backgroundColor : '#003147',
         justifyContent : "center",
         alignItems: "center",
         borderRadius: 10,
         elevation: 10,
-        marginBottom: 10
+        margin: 10,
+        paddingHorizontal:30
     },
     buttonSign: {
         height: "50%",

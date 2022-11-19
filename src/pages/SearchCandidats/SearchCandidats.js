@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, Switch } from 'react-native'
+import { StyleSheet, Text, View, Image, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { ApiService } from '../../api/axios'
 import { Link } from 'react-router-native'
@@ -23,7 +23,7 @@ export default function SearchCandidats() {
                 />
             </View>
 
-            <View style={styles.botDiv}>
+            <ScrollView style={styles.botDiv}>
                 <Text style={[styles.textColor, styles.title]}>Profils candidats</Text>
                 <Text style={[styles.textColor, styles.center]} >Ici vous trouverez tous les profils de candidats</Text>
 
@@ -36,13 +36,13 @@ export default function SearchCandidats() {
                                 source={require('../../assets/img/girl2.png')}
                             />
                             <Link to={`/candidat/${candidat.id}`} >
-                                <Text style={{ borderWidth: 0.3, height: 50, width: 200, borderRadius: 25, textAlign: "center", zIndex: 1, paddingHorizontal:50 }}> {candidat.firstName} {candidat.lastName} </Text>
+                                <Text style={{ borderWidth: 0.3, height: 50, width: 200, borderRadius: 25, textAlign: "center", zIndex: 1, paddingHorizontal:20, paddingVertical:10, }}> {candidat.firstName} {candidat.lastName} </Text>
                             </Link>
                         </View>
                     );
                 })}
 
-            </View>
+            </ScrollView>
         </View>
     )
 }

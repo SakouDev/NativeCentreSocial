@@ -1,17 +1,11 @@
 import React, { useEffect } from 'react'
-import { Image, Text, TextInput, View, Button, Alert } from 'react-native'
+import { Image, Text, TextInput, View, Pressable } from 'react-native'
 import { Link } from 'react-router-native'
-import { ApiService } from '../../api/axios'
 import { useForm, Controller } from "react-hook-form";
 
 import { LoginStyle } from './LoginStyle'
 
 export default function Login() {
-
-    // useEffect(() => {
-    //     ApiService.get('candidats').then(element => console.log(element))
-    // }, [])
-
 
     const { control, handleSubmit, formState: { errors } } = useForm({
         defaultValues: {
@@ -77,9 +71,11 @@ export default function Login() {
                 </View>
 
                 <View style={LoginStyle.buttonGroup}>
-                    <Link to={'/home'} /*onPress={handleSubmit(onSubmit)}*/ style={LoginStyle.buttonLog}>
-                        <Text style={LoginStyle.textWhite}>Connexion</Text>
-                    </Link>
+                    <Pressable onPress={handleSubmit(onSubmit)} >
+                        <Link to={'/home'} style={LoginStyle.buttonLog}>
+                            <Text style={LoginStyle.textWhite}>Connexion</Text>
+                        </Link>
+                    </Pressable>
                     <Link to={'/register'} style={LoginStyle.buttonSign}>
                         <Text style={LoginStyle.textColor}>Inscription</Text>
                     </Link>

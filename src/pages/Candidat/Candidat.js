@@ -18,9 +18,6 @@ export default function Candidat({ }) {
       .then(element => setData(element.data.data))
   }, [candidatId])
 
-
-  // console.log(data?.User.Disponibilites);
-
   return (
     <View style={styles.container}>
       <View style={styles.topDiv}>
@@ -31,30 +28,30 @@ export default function Candidat({ }) {
       </View>
 
       <View style={styles.botDiv}>
-        <View style={{ flexDirection: 'row', margin: 20, justifyContent: "center", alignItems: "center", }} >
+        <View style={{ flexDirection: 'row', margin: 10, justifyContent: "center", alignItems: "center", }} >
           <Image
             style={styles.imgcand}
             source={require('../../assets/img/girl2.png')}
           />
-          <Text style={{ fontSize: 32, }}> {data?.firstName} {data?.lastName} </Text>
+          <Text style={[{ fontSize: 32, }, styles.textColor]}> {data?.firstName} {data?.lastName} </Text>
         </View>
-        <Text>{data?.birthday}</Text>
-        <Text>{data?.User.address} </Text>
-        <Text>{data?.User.zipCode} {data?.User.city}</Text>
-        <Text>{data?.User.mail}</Text>
+        <Text style={styles.textColor}>{data?.birthday}</Text>
+        <Text style={styles.textColor}>{data?.User.address} </Text>
+        <Text style={styles.textColor}>{data?.User.zipCode} {data?.User.city}</Text>
+        <Text style={styles.textColor}>{data?.User.mail}</Text>
 
-        <Text style={styles.title}>Diplômes</Text>
+        <Text style={styles.subtitle}>Diplômes</Text>
         {data?.User.Diplomes.map((dispo, id) => (
           <Text key={id} > . {dispo.certificate}</Text>
         ))}
 
 
-        <Text style={styles.title}>Périodes de disonibilités</Text>
+        <Text style={styles.subtitle}>Périodes de disonibilités</Text>
         {data?.User.Disponibilites.map((dispo, id) => (
           <Text key={id} > . {dispo.namePeriod}</Text>
         ))}
 
-        <View style={{flexDirection:"row"}} >
+        <View style={{ flexDirection: "row", marginTop: 15, }} >
           <Link to={'/contact'} style={styles.button}>
             <Text style={styles.textWhite}>Contacter</Text>
           </Link>
@@ -76,9 +73,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingBottom: 150
   },
-  body: {
-    margin: 10
-  },
   topDiv: {
     height: '25%',
     width: '100%',
@@ -90,14 +84,17 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   textColor: {
-    fontSize: 16,
     color: "#003147",
-    fontWeight: "bold"
+    fontWeight: "400"
   },
-  title: {
-    fontSize: 20,
+  subtitle: {
     alignSelf: "center",
-    marginVertical: 30
+    color: "grey",
+    margin: 25,
+    padding: 10,
+    borderColor: "grey",
+    borderWidth: 1,
+    borderRadius: 5,
   },
   image: {
     height: "100%",
@@ -109,15 +106,6 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     borderWidth: 5,
     borderColor: "#003147",
-  },
-  LinkProfile: {
-    alignSelf: "center",
-    marginBottom: 20,
-  },
-  imageProfil: {
-    height: 150,
-    width: 150,
-    borderRadius: 15,
   },
   button: {
     height: 40,
