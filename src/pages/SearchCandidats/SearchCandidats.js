@@ -35,8 +35,8 @@ export default function SearchCandidats() {
                                 style={styles.imgcand}
                                 source={require('../../assets/img/girl2.png')}
                             />
-                            <Link to={'/candidat'}  element={<Candidat candid={candidat.id} />} >
-                                <Text style={{ borderWidth: 0.3, height: 50, width: 200, borderRadius: 25, textAlign: "center", zIndex: 1, paddingHorizontal:50 }}> {candidat.firstName} {candidat.lastName} {candidat.id}</Text>
+                            <Link to={`/candidat/${candidat.id}`} >
+                                <Text style={{ borderWidth: 0.3, height: 50, width: 200, borderRadius: 25, textAlign: "center", zIndex: 1, paddingHorizontal:50 }}> {candidat.firstName} {candidat.lastName} </Text>
                             </Link>
                         </View>
                     );

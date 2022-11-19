@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { Link, NativeRouter, Route, Routes } from 'react-router-native';
+
 import Footer from './src/components/Footer/Footer';
 import Header from './src/components/Header/Header';
 import HeaderLarge from './src/components/HeaderLarge/HeaderLarge';
@@ -37,7 +38,8 @@ export default function App() {
         <Route exact path="/profile" element={<Profile />} />
         <Route exact path="/lostpass" element={<LostPass />} />
         <Route exact path="/searchcandidats" element={<SearchCandidats />} />
-        <Route path="/candidat" element={<Candidat />} />
+        <Route path="/candidat/:id" element={<Candidat />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
 
       <StatusBar backgroundColor="#003147" />
