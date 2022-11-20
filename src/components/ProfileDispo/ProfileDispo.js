@@ -31,7 +31,7 @@ export default function ProfileDispo({ data, setData }) {
     }
 
     return (
-        <View>
+        <View style={{marginVertical:20}}>
             <Text style={ProfileDispoStyle.title}>Mes  disponibilités</Text>
             <Text style={ProfileDispoStyle.subtitle}>Jour de la semaine</Text>
 

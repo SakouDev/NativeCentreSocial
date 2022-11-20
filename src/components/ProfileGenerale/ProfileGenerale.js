@@ -1,62 +1,183 @@
-import { View, Text, TextInput, } from 'react-native'
+import { View, Text, TextInput, Pressable } from 'react-native'
 import React, { useState } from 'react'
-import { ProfileStyle } from '../../pages/Profile/ProfileStyle'
 import { Picker } from '@react-native-picker/picker';
+import { useForm, Controller } from "react-hook-form";
+import { Link } from 'react-router-native';
 
-export default function ProfileGenerale({data}) {
+import { ProfileStyle } from '../../pages/Profile/ProfileStyle'
+import CustomInput from '../ElementCustom/CustomInput';
+
+export default function ProfileGenerale({ data, setData }) {
 
     const [selectedJob, setSelectedJob] = useState();
-    const [nom, onChangeNom] = useState(null);
-    const [prenom, onChangePrenom] = useState(null);
+
+    const { control, handleSubmit, formState: { errors } } = useForm({
+        defaultValues: {
+            ...data, firstName: data?.firstName,
+            ...data, lastName: data?.lastName,
+            ...data, birthday: data?.birthday,
+            ...data, phone: data?.User.phone,
+            ...data, zipCode: data?.User.zipCode,
+            ...data, city: data?.User.city,
+            ...data, address: data?.User.address,
+        }
+    });
+
 
     return (
-        <View>
-            <Picker
-                selectedValue={selectedJob}
-                style={ProfileStyle.selected}
-                onValueChange={(itemValue, itemIndex) =>
-                    setSelectedJob(itemValue)
-                }>
-                <Picker.Item label="Poste recherché" value="" />
-                <Picker.Item label="Animateur" value="Animateur" />
-                <Picker.Item label="Directeur" value="Directeur" />
-            </Picker>
-
-            <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
-                <View style={{ width: "50%" }}>
-                    <Text style={ProfileStyle.titleInput}>Nom</Text>
-                    <TextInput style={ProfileStyle.input} onChangeText={onChangeNom} value={data?.firstName}  />
-                </View>
-                <View style={{ width: "50%" }}>
-                    <Text style={ProfileStyle.titleInput}>Prénom</Text>
-                    <TextInput style={ProfileStyle.input} onChangeText={onChangePrenom} value={data?.lastName} />
-                </View>
+        <View style={{ flexDirection: "row", flexWrap: "wrap", marginVertical:30 }}>
+            <View style={{ width: "100%" }}>
+                <Picker
+                    selectedValue={selectedJob}
+                    style={ProfileStyle.selected}
+                    onValueChange={(itemValue, itemIndex) =>
+                        setSelectedJob(itemValue)
+                    }>
+                    <Picker.Item label="Poste recherché" value="" />
+                    <Picker.Item label="Animateur" value="Animateur" />
+                    <Picker.Item label="Directeur" value="Directeur" />
+                </Picker>
             </View>
 
-            <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
-                <View style={{ width: "50%" }}>
-                    <Text style={ProfileStyle.titleInput}>Date de Naisscance</Text>
-                    <TextInput style={ProfileStyle.input} onChangeText={onChangeNom}  value={data?.birthday}/>
-                </View>
-                <View style={{ width: "50%" }}>
-                    <Text style={ProfileStyle.titleInput}>Téléphone</Text>
-                    <TextInput style={ProfileStyle.input} onChangeText={onChangePrenom}  value={data?.User.phone} />
-                </View>
+            <View style={{ width: "50%" }}>
+                <Text style={ProfileStyle.titleInput}>Prénom</Text>
+                <Controller
+                    control={control}
+                    rules={{
+                        required: true,
+                    }}
+                    render={({ field: { onChange, onBlur, value } }) => (
+                        <TextInput
+                            style={ProfileStyle.input}
+                            onBlur={onBlur}
+                            onChangeText={onChange}
+                            value={value}
+                        />
+                    )}
+                    name="firstName"
+                />
             </View>
 
-            <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
-                <View style={{ width: "50%" }}>
-                    <Text style={ProfileStyle.titleInput}>Code postal</Text>
-                    <TextInput style={ProfileStyle.input} onChangeText={onChangeNom} value={data?.User.zipCode} />
-                </View>
-                <View style={{ width: "50%" }}>
-                    <Text style={ProfileStyle.titleInput}>Ville</Text>
-                    <TextInput style={ProfileStyle.input} onChangeText={onChangePrenom} value={data?.User.city} />
-                </View>
+            <View style={{ width: "50%" }}>
+                <Text style={ProfileStyle.titleInput}>Nom</Text>
+                <Controller
+                    control={control}
+                    rules={{
+                        required: true,
+                    }}
+                    render={({ field: { onChange, onBlur, value } }) => (
+                        <TextInput
+                            style={ProfileStyle.input}
+                            onBlur={onBlur}
+                            onChangeText={onChange}
+                            value={value}
+                        />
+                    )}
+                    name="lastName"
+                />
             </View>
 
-            <Text style={ProfileStyle.titleInput}>Adresse</Text>
-            <TextInput style={ProfileStyle.input} onChangeText={onChangePrenom} value={data?.User.address} />
+
+            <View style={{ width: "50%" }}>
+                <Text style={ProfileStyle.titleInput}>Date de Naissance</Text>
+                <Controller
+                    control={control}
+                    rules={{
+                        required: true,
+                    }}
+                    render={({ field: { onChange, onBlur, value } }) => (
+                        <TextInput
+                            style={ProfileStyle.input}
+                            onBlur={onBlur}
+                            onChangeText={onChange}
+                            value={value}
+                        />
+                    )}
+                    name="birthday"
+                />
+            </View>
+
+            <View style={{ width: "50%" }}>
+                <Text style={ProfileStyle.titleInput}>Téléphone</Text>
+                <Controller
+                    control={control}
+                    rules={{
+                        required: true,
+                    }}
+                    render={({ field: { onChange, onBlur, value } }) => (
+                        <TextInput
+                            style={ProfileStyle.input}
+                            onBlur={onBlur}
+                            onChangeText={onChange}
+                            value={value}
+                        />
+                    )}
+                    name="phone"
+                />
+            </View>
+
+            <View style={{ width: "50%" }}>
+                <Text style={ProfileStyle.titleInput}>Code postal</Text>
+                <Controller
+                    control={control}
+                    rules={{
+                        required: true,
+                    }}
+                    render={({ field: { onChange, onBlur, value } }) => (
+                        <TextInput
+                            style={ProfileStyle.input}
+                            onBlur={onBlur}
+                            onChangeText={onChange}
+                            value={value}
+                        />
+                    )}
+                    name="zipCode"
+                />
+            </View>
+            <View style={{ width: "50%" }}>
+                <Text style={ProfileStyle.titleInput}>Ville</Text>
+                <Controller
+                    control={control}
+                    rules={{
+                        required: true,
+                    }}
+                    render={({ field: { onChange, onBlur, value } }) => (
+                        <TextInput
+                            style={ProfileStyle.input}
+                            onBlur={onBlur}
+                            onChangeText={onChange}
+                            value={value}
+                        />
+                    )}
+                    name="city"
+                />
+            </View>
+
+            <View style={{ width: "100%" }}>
+                <Text style={ProfileStyle.titleInput}>Adresse</Text>
+                <Controller
+                    control={control}
+                    rules={{
+                        required: true,
+                    }}
+                    render={({ field: { onChange, onBlur, value } }) => (
+                        <TextInput
+                            style={ProfileStyle.input}
+                            onBlur={onBlur}
+                            onChangeText={onChange}
+                            value={value}
+                        />
+                    )}
+                    name="address"
+                />
+            </View>
+
+
+                {/* <Pressable onPress={handleSubmit((dataCheck) => console.log(dataCheck))} >
+                    <Link to={'/home'} style={ProfileStyle.buttonLog}>
+                        <Text style={ProfileStyle.textWhite}>Suivant</Text>
+                    </Link>
+                </Pressable> */}
         </View>
     )
 }

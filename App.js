@@ -7,12 +7,16 @@ import Footer from './src/components/Footer/Footer';
 import Header from './src/components/Header/Header';
 import HeaderLarge from './src/components/HeaderLarge/HeaderLarge';
 import Loader from './src/components/Loader/Loader';
+import ProfileDiplome from './src/components/ProfileDiplome/ProfileDiplome';
+import ProfileDispo from './src/components/ProfileDispo/ProfileDispo';
+import ProfileGenerale from './src/components/ProfileGenerale/ProfileGenerale';
 import Candidat from './src/pages/Candidat/Candidat';
 import Contact from './src/pages/Contact/Contact';
 import Home from './src/pages/Home/Home';
 import Login from './src/pages/Login/Login';
 import LostPass from './src/pages/Lostpass/Lostpass';
 import Profile from './src/pages/Profile/Profile'
+
 import SearchCandidats from './src/pages/SearchCandidats/SearchCandidats';
 
 export default function App() {
@@ -35,7 +39,13 @@ export default function App() {
       <Routes>
         <Route exact path="/" element={<Login />} />
         <Route exact path="/home" element={<Home />} />
-        <Route exact path="/profile" element={<Profile />} />
+        <Route exact path="/profile" element={<Profile />} >
+          <Route exact path="/profile/generale" element={<ProfileGenerale />} />
+          <Route exact path="/profile/diplomes" element={<ProfileDiplome />} />
+          <Route exact path="/profile/diponibilites" element={<ProfileDispo />} />
+
+
+        </Route>
         <Route exact path="/lostpass" element={<LostPass />} />
         <Route exact path="/searchcandidats" element={<SearchCandidats />} />
         <Route path="/candidat/:id" element={<Candidat />} />

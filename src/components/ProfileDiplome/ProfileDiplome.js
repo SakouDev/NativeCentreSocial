@@ -43,7 +43,7 @@ export default function ProfileDiplome({ data, setData }) {
     }
 
     return (
-        <View>
+        <View style={{marginVertical:20}}>
             <Text style={styles.title}>Mes diplômes</Text>
 
 
