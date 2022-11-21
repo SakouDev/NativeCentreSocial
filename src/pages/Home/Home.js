@@ -6,8 +6,8 @@ import HomeE from '../../components/HomeE/HomeE.js'
 export default function Home() {
   return (
     <View>
-      <HomeC />
-      {/* <HomeE /> */}
+      {/* <HomeC /> */}
+      <HomeE />
     </View>
   )
 }

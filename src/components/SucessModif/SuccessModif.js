@@ -12,8 +12,8 @@ export default function SuccessModif() {
                 <Text style={{ color: "#305f13", marginVertical: 20 }}>Vous recevrez un mail une semaine avant la fin de la date de validité de votre profil.</Text>
             </View>
 
-            <Link to={'/'} style={{borderRadius:15, backgroundColor:"#8025BE", width: "40%", alignSelf:"center"}} >
-                <Text style={{ color: "white", padding:10, textAlign: "center", fontWeight:"bold", fontSize:20,}} >Terminer
+            <Link to={'/'} style={{borderRadius:15, backgroundColor:"#8025BE", width: "40%", alignSelf:"center", marginBottom:50,}} >
+                <Text style={{ color: "white", padding:10, textAlign: "center", fontWeight:"bold", fontSize:20}} >Terminer
                 </Text>
             </Link>
         </View>

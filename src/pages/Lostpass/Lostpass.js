@@ -13,7 +13,7 @@ export default function LostPass() {
         />
       </View>
       <View style={LostpassStyle.botDiv}>
-        {/* <Text style={[LostpassStyle.textColor, LostpassStyle.title]}>Mot de passe oublié</Text>
+        <Text style={[LostpassStyle.textColor, LostpassStyle.title]}>Mot de passe oublié</Text>
 
         <Text style={{ alignSelf: "center" }} >Entrez votre adresse e-mail.</Text>
 
@@ -24,14 +24,14 @@ export default function LostPass() {
 
         <Link to={'/home'} style={LostpassStyle.buttonLog}>
           <Text style={LostpassStyle.textWhite}>Valider</Text>
-        </Link> */}
+        </Link>
 
-        <View>
+        {/* <View>
           <Text style={LostpassStyle.textValidation} >Un email vient de vous être envoyé afin de changer votre mot de passe.</Text>
           <Link to={'/'} style={LostpassStyle.buttonLog}>
             <Text style={LostpassStyle.textWhite}>Terminer</Text>
           </Link>
-        </View>
+        </View> */}
       </View>
     </View>
   )

@@ -5,7 +5,6 @@ import { useForm, Controller } from "react-hook-form";
 import { Link } from 'react-router-native';
 
 import { ProfileStyle } from '../../pages/Profile/ProfileStyle'
-import CustomInput from '../ElementCustom/CustomInput';
 
 export default function ProfileGenerale({ data, setData }) {
 
@@ -25,7 +24,7 @@ export default function ProfileGenerale({ data, setData }) {
 
 
     return (
-        <View style={{ flexDirection: "row", flexWrap: "wrap", marginVertical:30 }}>
+        <View style={{ flexDirection: "row", flexWrap: "wrap", marginBottom:30 }}>
             <View style={{ width: "100%" }}>
                 <Picker
                     selectedValue={selectedJob}

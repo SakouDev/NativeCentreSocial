@@ -1,10 +1,17 @@
-import { View, Text, Switch } from 'react-native'
+import { View, Text, Switch, Pressable } from 'react-native'
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-native';
+import { useForm, Controller } from "react-hook-form";
+
 import { ProfileDispoStyle } from './ProfileDispoStyle'
 import { ApiService } from '../../api/axios'
 
 
 export default function ProfileDispo({ data, setData }) {
+
+    const { control, handleSubmit, formState: { errors } } = useForm({
+        defaultValues: {}
+    });
 
     // Vérifier l'utilité
     const [isEnabled, setIsEnabled] = useState(false);
@@ -31,12 +38,12 @@ export default function ProfileDispo({ data, setData }) {
     }
 
     return (
-        <View style={{marginVertical:20}}>
+        <View style={{ marginVertical: 20 }}>
             <Text style={ProfileDispoStyle.title}>Mes  disponibilités</Text>
             <Text style={ProfileDispoStyle.subtitle}>Jour de la semaine</Text>
 
 
-            <View style={{flexDirection: "row",flexWrap: "wrap",}}>
+            <View style={{ flexDirection: "row", flexWrap: "wrap", }}>
 
                 {dispoData?.map((element, id) => {
                     return (
@@ -51,6 +58,12 @@ export default function ProfileDispo({ data, setData }) {
                     );
                 })}
             </View>
+
+            <Pressable onPress={handleSubmit((dataCheck) => console.log(dataCheck))} >
+                <Link to={'/home'} style={ProfileDispoStyle.buttonLog}>
+                    <Text style={ProfileDispoStyle.textWhite}>Confirmer les Changements</Text>
+                </Link>
+            </Pressable>
         </View>
     )
 }

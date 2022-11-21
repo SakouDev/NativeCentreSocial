@@ -33,4 +33,20 @@ export const ProfileDispoStyle = StyleSheet.create({
         margin: 10,
         paddingHorizontal:10,
     },
+    buttonLog: {
+        height: 40,
+        backgroundColor : '#003147',
+        justifyContent : "center",
+        alignItems: "center",
+        alignSelf:"center",
+        borderRadius: 10,
+        elevation: 10,
+        margin: 10,
+        paddingHorizontal:30
+    },
+    textWhite : {
+        fontSize : 16,
+        color:"white",
+        fontWeight: "bold"
+    },
 });
