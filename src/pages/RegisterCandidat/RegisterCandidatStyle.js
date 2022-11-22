@@ -7,11 +7,10 @@ export const RegisterStyle = StyleSheet.create({
         width : '100%',
         backgroundColor: 'white',
         alignItems: 'center',
-        marginTop: 100
+        paddingTop: 70
     },
 
     input:{
-        alignSelf: "center",
         width: '70%',
         borderWidth: 0.4,
         borderColor: "grey",
@@ -20,5 +19,25 @@ export const RegisterStyle = StyleSheet.create({
         elevation : 10,
         margin: 15,
         height: 35,
+    },
+    button: {
+        height: "10%",
+        width: "35%",
+        backgroundColor : '#003147',
+        justifyContent : "center",
+        alignItems: "center",
+        borderRadius: 10,
+        elevation: 10,
+        marginBottom: 10
+    },
+
+    textWhite : {
+        fontSize : 16,
+        color:"white",
+        fontWeight: "bold"
+    },
+
+    text: {
+        fontWeight: "bold",
     }
 });

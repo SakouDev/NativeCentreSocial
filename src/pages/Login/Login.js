@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, Text, TextInput, View } from 'react-native'
+import {Image, SafeAreaView, Text, TextInput, View} from 'react-native'
 import { Link } from 'react-router-native'
 
 import {LoginStyle} from './LoginStyle'
@@ -9,7 +9,7 @@ export default function Login() {
 
 
     return (
-        <View style={LoginStyle.container}>
+        <SafeAreaView style={LoginStyle.container}>
             <View style={LoginStyle.topDiv}>
                 <Image
                     style = {LoginStyle.image}
@@ -35,13 +35,13 @@ export default function Login() {
                     <Link to={'/home'} style={LoginStyle.buttonLog}>
                         <Text style={LoginStyle.textWhite}>Connexion</Text>
                     </Link>
-                    <Link to={'/register'} style={LoginStyle.buttonSign}>
+                    <Link to={'/statusselector'} style={LoginStyle.buttonSign}>
                         <Text style={LoginStyle.textColor}>Inscription</Text>
                     </Link>
                 </View>
 
             </View>
 
-        </View>
+        </SafeAreaView>
     )
 }

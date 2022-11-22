@@ -8,7 +8,6 @@ export const HeaderStyle = StyleSheet.create({
         height : "7%",
         width : "100%",
         backgroundColor: '#003147',
-        display : 'flex',
         flexDirection : 'row',
         justifyContent : 'space-between'
     },
@@ -19,7 +18,8 @@ export const HeaderStyle = StyleSheet.create({
         borderRadius : 10,
         position: "relative",
         top: "2%",
-        left : "50%"
+        left : "50%",
+        paddingBottom: 5
     },
     logo : {
         height : window/10,

@@ -3,11 +3,11 @@ const window = Dimensions.get('window').width
 
 export const LoginStyle = StyleSheet.create({
     container: {
-        height : '86%',
         width : '100%',
         backgroundColor: 'white',
         alignItems: 'center',
         justifyContent: 'center',
+        flex: 1
     },
     topDiv:{
         height: '25%',
