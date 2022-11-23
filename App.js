@@ -35,9 +35,8 @@ export default function App() {
   if (loading) return <Loader />
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#003147', paddingTop: 40 }}>
       <NativeRouter>
-        <HeaderLarge />
+        <Header />
 
         <Routes>
           <Route exact path="/" element={<Login />} />
@@ -49,8 +48,6 @@ export default function App() {
             <Route exact path="/profile/generale" element={<ProfileGenerale />} />
             <Route exact path="/profile/diplomes" element={<ProfileDiplome />} />
             <Route exact path="/profile/diponibilites" element={<ProfileDispo />} />
-
-
           </Route>
           <Route exact path="/lostpass" element={<LostPass />} />
           <Route exact path="/searchcandidats" element={<SearchCandidats />} />
@@ -62,7 +59,6 @@ export default function App() {
 
         <Footer />
       </NativeRouter>
-    </View>
   );
 }
 

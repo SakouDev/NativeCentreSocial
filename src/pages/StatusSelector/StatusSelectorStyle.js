@@ -13,10 +13,14 @@ export const StatusSelectorStyle = StyleSheet.create({
     imgEmployeur: {
         padding: 10,
     },
-
+    img:{
+        height : 150,
+        width : 150,
+        borderRadius: 15,
+    },
     text:{
         fontWeight: "bold",
         padding: 5,
-        marginLeft: 80
+        marginLeft: 40
     }
 })

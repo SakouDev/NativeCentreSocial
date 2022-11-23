@@ -99,8 +99,8 @@ export default function Profile() {
         <Text style={[ProfileStyle.textColor, ProfileStyle.title]}>Modifier mon profil</Text>
 
         <ProfileGenerale data={data} setData={setData} />
-        {/* <ProfileDiplome data={data} setData={setData} /> */}
-        {/* <ProfileDispo data={data} setData={setData} /> */}
+        <ProfileDiplome data={data} setData={setData} />
+        <ProfileDispo data={data} setData={setData} />
         {/* <SuccessModif /> */}
 
       </ScrollView>

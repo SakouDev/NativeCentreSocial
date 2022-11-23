@@ -87,7 +87,7 @@ export default function Login() {
 							<Text style={LoginStyle.textWhite}>Connexion</Text>
 						</Link>
 					</Pressable>
-					<Link to={"/register"} style={LoginStyle.buttonSign}>
+					<Link to={"/statusselector"} style={LoginStyle.buttonSign}>
 						<Text style={LoginStyle.textColor}>Inscription</Text>
 					</Link>
 				</View>
