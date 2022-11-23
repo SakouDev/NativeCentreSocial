@@ -8,6 +8,7 @@ export const LoginStyle = StyleSheet.create({
         backgroundColor: 'white',
         alignItems: 'center',
         justifyContent: 'center',
+        flex: 1
     },
     topDiv:{
         height: '25%',

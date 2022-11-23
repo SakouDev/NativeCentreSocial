@@ -1,8 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { Link, NativeRouter, Route, Routes } from 'react-router-native';
-
+import { StyleSheet, View} from 'react-native';
+import { NativeRouter, Route, Routes } from 'react-router-native';
 import Footer from './src/components/Footer/Footer';
 import Header from './src/components/Header/Header';
 import HeaderLarge from './src/components/HeaderLarge/HeaderLarge';
@@ -14,6 +13,9 @@ import Candidat from './src/pages/Candidat/Candidat';
 import Contact from './src/pages/Contact/Contact';
 import Home from './src/pages/Home/Home';
 import Login from './src/pages/Login/Login';
+import RegisterCandidat from "./src/pages/RegisterCandidat/RegisterCandidat";
+import RegisterEmployeur from "./src/pages/RegisterEmployeur/RegisterEmployeur";
+import StatusSelector from "./src/pages/StatusSelector/StatusSelector";
 import LostPass from './src/pages/Lostpass/Lostpass';
 import Profile from './src/pages/Profile/Profile'
 
@@ -33,29 +35,34 @@ export default function App() {
   if (loading) return <Loader />
 
   return (
-    <NativeRouter>
-      <HeaderLarge />
+    <View style={{ flex: 1, backgroundColor: '#003147', paddingTop: 40 }}>
+      <NativeRouter>
+        <HeaderLarge />
 
-      <Routes>
-        <Route exact path="/" element={<Login />} />
-        <Route exact path="/home" element={<Home />} />
-        <Route exact path="/profile" element={<Profile />} >
-          <Route exact path="/profile/generale" element={<ProfileGenerale />} />
-          <Route exact path="/profile/diplomes" element={<ProfileDiplome />} />
-          <Route exact path="/profile/diponibilites" element={<ProfileDispo />} />
+        <Routes>
+          <Route exact path="/" element={<Login />} />
+          <Route exact path="/home" element={<Home />} />
+          <Route exact path="/registercandidat" element={<RegisterCandidat />} />
+          <Route exact path="/registeremployeur" element={<RegisterEmployeur />} />
+          <Route exact path="/statusselector" element={<StatusSelector />} />
+          <Route exact path="/profile" element={<Profile />} >
+            <Route exact path="/profile/generale" element={<ProfileGenerale />} />
+            <Route exact path="/profile/diplomes" element={<ProfileDiplome />} />
+            <Route exact path="/profile/diponibilites" element={<ProfileDispo />} />
 
 
-        </Route>
-        <Route exact path="/lostpass" element={<LostPass />} />
-        <Route exact path="/searchcandidats" element={<SearchCandidats />} />
-        <Route path="/candidat/:id" element={<Candidat />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+          </Route>
+          <Route exact path="/lostpass" element={<LostPass />} />
+          <Route exact path="/searchcandidats" element={<SearchCandidats />} />
+          <Route path="/candidat/:id" element={<Candidat />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
 
-      <StatusBar backgroundColor="#003147" />
+        <StatusBar backgroundColor="#003147" />
 
-      <Footer />
-    </NativeRouter>
+        <Footer />
+      </NativeRouter>
+    </View>
   );
 }
 
