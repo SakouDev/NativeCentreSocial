@@ -44,7 +44,6 @@ export default function ProfileDispo({ data, setData }) {
 
 
             <View style={{ flexDirection: "row", flexWrap: "wrap", }}>
-
                 {dispoData?.map((element, id) => {
                     return (
                         <View style={ProfileDispoStyle.certificateRow} key={id}>

@@ -1,8 +1,9 @@
-import { View, Text, TextInput, Pressable } from 'react-native'
+import { View, Text, TextInput, Pressable, Button } from 'react-native'
 import React, { useState } from 'react'
 import { Picker } from '@react-native-picker/picker';
 import { useForm, Controller } from "react-hook-form";
 import { Link } from 'react-router-native';
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 import { ProfileStyle } from '../../pages/Profile/ProfileStyle'
 
@@ -22,9 +23,24 @@ export default function ProfileGenerale({ data, setData }) {
         }
     });
 
+    const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+
+    const showDatePicker = () => {
+        setDatePickerVisibility(true);
+    };
+
+    const hideDatePicker = () => {
+        setDatePickerVisibility(false);
+    };
+
+    const handleConfirm = (date) => {
+        console.warn("A date has been picked: ", date);
+        hideDatePicker();
+    };
+
 
     return (
-        <View style={{ flexDirection: "row", flexWrap: "wrap", marginBottom:30 }}>
+        <View style={{ flexDirection: "row", flexWrap: "wrap", marginBottom: 30 }}>
             <View style={{ width: "100%" }}>
                 <Picker
                     selectedValue={selectedJob}
@@ -85,12 +101,21 @@ export default function ProfileGenerale({ data, setData }) {
                         required: true,
                     }}
                     render={({ field: { onChange, onBlur, value } }) => (
-                        <TextInput
-                            style={ProfileStyle.input}
-                            onBlur={onBlur}
-                            onChangeText={onChange}
-                            value={value}
-                        />
+                        <View>
+                            <DateTimePickerModal
+                                isVisible={isDatePickerVisible}
+                                mode="date"
+                                onConfirm={handleConfirm}
+                                onCancel={hideDatePicker}
+                            />
+                            <TextInput
+                                style={ProfileStyle.input}
+                                onBlur={onBlur}
+                                onPress={showDatePicker}
+                                onChangeText={onChange}
+                                value={value}
+                            />
+                        </View>
                     )}
                     name="birthday"
                 />
@@ -172,7 +197,7 @@ export default function ProfileGenerale({ data, setData }) {
             </View>
 
 
-                {/* <Pressable onPress={handleSubmit((dataCheck) => console.log(dataCheck))} >
+            {/* <Pressable onPress={handleSubmit((dataCheck) => console.log(dataCheck))} >
                     <Link to={'/home'} style={ProfileStyle.buttonLog}>
                         <Text style={ProfileStyle.textWhite}>Suivant</Text>
                     </Link>

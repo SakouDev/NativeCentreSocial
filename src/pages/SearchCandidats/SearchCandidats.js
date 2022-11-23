@@ -30,13 +30,13 @@ export default function SearchCandidats() {
 
                 {candidats.map((candidat, id) => {
                     return (
-                        <View key={id} style={{ flexDirection: 'row', margin: 20, justifyContent: "center", alignItems: "center", }} >
+                        <View key={id} style={styles.candidatView} >
                             <Image
                                 style={styles.imgcand}
                                 source={require('../../assets/img/girl2.png')}
                             />
                             <Link to={`/candidat/${candidat.id}`} >
-                                <Text style={{ borderWidth: 0.3, height: 50, width: 200, borderRadius: 25, textAlign: "center", zIndex: 1, paddingHorizontal:20, paddingVertical:10, }}> {candidat.firstName} {candidat.lastName} </Text>
+                                <Text style={styles.fullname}> {candidat.firstName} {candidat.lastName} </Text>
                             </Link>
                         </View>
                     );
@@ -100,6 +100,21 @@ const styles = StyleSheet.create({
     },
     center: {
         textAlign: "center",
-
-    }
+    },
+    candidatView : {
+        flexDirection: 'row', 
+        margin: 20, 
+        justifyContent: "center", 
+        alignItems: "center",
+    },
+    fullname : {
+        borderWidth: 0.3, 
+        height: 50, 
+        width: 200, 
+        borderRadius: 25, 
+        textAlign: "center", 
+        zIndex: 1, 
+        paddingHorizontal:20, 
+        paddingVertical:10,
+    },
 })

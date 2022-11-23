@@ -28,7 +28,7 @@ export default function Candidat({ }) {
       </View>
 
       <View style={styles.botDiv}>
-        <View style={{ flexDirection: 'row', margin: 10, justifyContent: "center", alignItems: "center", }} >
+        <View style={styles.mainPres} >
           <Image
             style={styles.imgcand}
             source={require('../../assets/img/girl2.png')}
@@ -121,5 +121,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "white",
     fontWeight: "bold"
+  },
+  mainPres : {
+    flexDirection: 'row', 
+    margin: 10, 
+    justifyContent: "center", 
+    alignItems: "center",
   },
 })
