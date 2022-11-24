@@ -1,14 +1,12 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-native';
-import { Link } from 'react-router-native'
+import { useParams, Link } from 'react-router-native';
 
 import { ApiService } from '../../api/axios'
 
-export default function Candidat({ }) {
+export default function Candidat() {
 
   const [data, setData] = useState()
-  const [ageC, setAgeC] = useState()
 
   const candidatId = useParams()
 

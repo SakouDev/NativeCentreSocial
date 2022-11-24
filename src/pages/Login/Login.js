@@ -1,11 +1,29 @@
-import React, { useEffect } from "react";
-import { Image, Text, TextInput, View, Pressable } from "react-native";
+import { AuthContext } from "../../api/AuthContext";
+import React, { useState, useContext } from "react";
+import {
+	Image,
+	Text,
+	TextInput,
+	View,
+	Pressable,
+	ActivityIndicator,
+} from "react-native";
 import { Link } from "react-router-native";
 import { useForm, Controller } from "react-hook-form";
 
 import { LoginStyle } from "./LoginStyle";
 
 export default function Login() {
+	const { isLoading, loginCand, failLog } = useContext(AuthContext);
+
+	const [textFailCheck, setTextFailCheck] = useState("");
+	const [failCheck, setFailCheck] = useState(true);
+
+	if (failLog && failCheck) {
+		setTextFailCheck("Email ou mot de passe incorrect");
+		setFailCheck(false);
+	}
+
 	const {
 		control,
 		handleSubmit,
@@ -16,7 +34,7 @@ export default function Login() {
 			password: "",
 		},
 	});
-	const onSubmit = (data) => console.log(data);
+	const onSubmit = (data) => loginCand(data);
 
 	return (
 		<View style={LoginStyle.container}>
@@ -27,6 +45,8 @@ export default function Login() {
 				/>
 			</View>
 			<View style={LoginStyle.botDiv}>
+				<ActivityIndicator animating={isLoading} />
+
 				<Text style={[LoginStyle.textColor, LoginStyle.title]}>Connexion</Text>
 
 				<View style={LoginStyle.loginGroup}>
@@ -74,19 +94,20 @@ export default function Login() {
 							Ce champs est requis.
 						</Text>
 					)}
-					<Link to={"/lostpass"}>
+
+					<Text style={LoginStyle.failCheck}>{textFailCheck}</Text>
+					{/* <Link to={"/lostpass"}>
 						<Text style={{ textAlign: "right", paddingHorizontal: 20 }}>
 							Mot de passe oublié ?
 						</Text>
-					</Link>
+					</Link> */}
 				</View>
 
 				<View style={LoginStyle.buttonGroup}>
-					<Pressable onPress={handleSubmit(onSubmit)}>
-						<Link to={"/home"} style={LoginStyle.buttonLog}>
+					<Pressable onPress={handleSubmit(onSubmit)} style={LoginStyle.buttonLog}>
 							<Text style={LoginStyle.textWhite}>Connexion</Text>
-						</Link>
 					</Pressable>
+
 					<Link to={"/statusselector"} style={LoginStyle.buttonSign}>
 						<Text style={LoginStyle.textColor}>Inscription</Text>
 					</Link>

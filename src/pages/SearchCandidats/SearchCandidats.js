@@ -2,7 +2,6 @@ import { StyleSheet, Text, View, Image, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { ApiService } from '../../api/axios'
 import { Link } from 'react-router-native'
-import Candidat from '../Candidat/Candidat'
 
 export default function SearchCandidats() {
 

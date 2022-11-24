@@ -1,8 +1,7 @@
-import { View, Text, Pressable } from 'react-native'
+import { View, Text, } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { styles } from './ProfileDiplomeStyle'
 import { Ionicons } from '@expo/vector-icons';
-import { Picker } from '@react-native-picker/picker';
 import Checkbox from 'expo-checkbox';
 import { ApiService } from '../../api/axios'
 

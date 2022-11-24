@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, Pressable, Text, View } from "react-native";
+import { Image, View } from "react-native";
 import { LoaderStyle } from "./LoaderStyle";
 
 export default function Loader({ setLoading }) {

@@ -6,7 +6,11 @@ const ApiService = {
     get(ressource) {
         return axios
             .get(`${url}/api/${ressource}`)
-    }
+    },
+    post(ressource, data) {
+        return axios
+            .post(`${url}/api/${ressource}`, data)
+    },
 
 }
 

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Image, Text, View, ScrollView, Pressable, Button } from 'react-native'
+import React, { useState } from 'react'
+import { Image, Text, View, ScrollView, } from 'react-native'
 import SuccessModif from '../../components/SucessModif/SuccessModif'
 
 import ProfileDiplome from '../../components/ProfileDiplome/ProfileDiplome'
