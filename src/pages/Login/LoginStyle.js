@@ -26,7 +26,6 @@ export const LoginStyle = StyleSheet.create({
     },
     buttonLog: {
         height: 50,
-        width: "35%",
         backgroundColor : '#003147',
         justifyContent : "center",
         alignItems: "center",

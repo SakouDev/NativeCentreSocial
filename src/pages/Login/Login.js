@@ -104,8 +104,13 @@ export default function Login() {
 				</View>
 
 				<View style={LoginStyle.buttonGroup}>
-					<Pressable onPress={handleSubmit(onSubmit)} style={LoginStyle.buttonLog}>
-							<Text style={LoginStyle.textWhite}>Connexion</Text>
+					<Pressable
+						onPress={handleSubmit(onSubmit)}
+						style={LoginStyle.buttonLog}
+					>
+						<Link to={"/home"} style={LoginStyle.buttonSign}>
+							<Text style={LoginStyle.textWhite}>Connection</Text>
+						</Link>
 					</Pressable>
 
 					<Link to={"/statusselector"} style={LoginStyle.buttonSign}>
