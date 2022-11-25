@@ -9,7 +9,7 @@ import { ProfileStyle } from './ProfileStyle'
 import { ApiService } from '../../api/axios'
 
 
-export default function Profile() {
+export default function ProfileC() {
 
   const [data, setData] = useState(
     {

@@ -17,7 +17,7 @@ export default function HomeE() {
                 <Text style={[HomeStyle.textColor, HomeStyle.title]}>Profil employeur</Text>
 
                 <View style={HomeStyle.LinkProfile}>
-                    <Link to={"/profile"}>
+                    <Link to={"/profile-employeur"}>
                         <Image
                             style={HomeStyle.imageProfil}
                             source={require('../../assets/img/man.png')}
@@ -43,7 +43,7 @@ export default function HomeE() {
                             source={require('../../assets/img/searchJob.png')}
                         />
                     </Link>
-                    <Text style={{ textAlign: "center" }}>Rechercher une offre</Text>
+                    <Text style={{ textAlign: "center" }}>Proposer une offre</Text>
                 </View>
 
 

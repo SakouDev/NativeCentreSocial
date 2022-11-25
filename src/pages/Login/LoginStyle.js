@@ -32,7 +32,7 @@ export const LoginStyle = StyleSheet.create({
         borderRadius: 10,
         elevation: 10,
         margin: 10,
-        paddingHorizontal:30
+        paddingHorizontal:20
     },
     buttonSign: {
         height: "50%",

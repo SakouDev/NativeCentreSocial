@@ -7,15 +7,13 @@ import HomeE from "../../components/HomeE/HomeE.js";
 export default function Home() {
 	const { isLoading, userInfo } = useContext(AuthContext);
 
-	console.log(userInfo.role);
-	if (userInfo.role == "Employeur") {
+	console.log("aled",userInfo.accessToken);
+  if (userInfo.role == "Employeur"|| userInfo.role == "employeur") {
 		return <HomeE />;
 	}
-	if (userInfo == "candidat") {
+	if (userInfo.role == "candidat" || userInfo.role == "Candidat") {
 		return (
-			<View>
 				<HomeC />
-			</View>
 		);
 	}
 }
