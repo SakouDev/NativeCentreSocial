@@ -27,7 +27,7 @@ export default function HomeC() {
                 </View>
 
                 <View style={HomeStyle.LinkProfile}>
-                    <Link to={""}>
+                    <Link to={"/search-employeurs"}>
                         <Image
                             style={HomeStyle.imageProfil}
                             source={require('../../assets/img/searchJob.png')}

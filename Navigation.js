@@ -25,6 +25,8 @@ import ProfileGenerale from "./src/components/ProfileGenerale/ProfileGenerale";
 import SearchCandidats from "./src/pages/SearchCandidats/SearchCandidats";
 import Candidat from "./src/pages/Candidat/Candidat";
 import Contact from "./src/pages/Contact/Contact";
+import SearchEmployeurs from "./src/pages/SearchEmployeurs/SearchEmployeurs";
+import Employeur from "./src/pages/Employeur/Employeur";
 
 export default function Navigation() {
 	const { userInfo, splashLoading } = useContext(AuthContext);
@@ -64,6 +66,12 @@ export default function Navigation() {
 							element={<SearchCandidats />}
 						/>
 						<Route path="/candidat/:id" element={<Candidat />} />
+						<Route
+							exact
+							path="/search-employeurs"
+							element={<SearchEmployeurs />}
+						/>
+						<Route path="/employeur/:id" element={<Employeur />} />
 						<Route path="/contact" element={<Contact />} />
 					</>
 				) : (

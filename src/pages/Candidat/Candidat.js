@@ -5,11 +5,9 @@ import { useParams, Link } from 'react-router-native';
 import { ApiService } from '../../api/axios'
 
 export default function Candidat() {
-
   const [data, setData] = useState()
 
   const candidatId = useParams()
-
 
   useEffect(() => {
     ApiService.get(`candidats/${candidatId.id}`)
