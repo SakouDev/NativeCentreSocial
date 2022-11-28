@@ -8,6 +8,7 @@ export const LoginStyle = StyleSheet.create({
         backgroundColor: 'white',
         alignItems: 'center',
         justifyContent: 'center',
+        flex: 1
     },
     topDiv:{
         height: '25%',
@@ -24,14 +25,14 @@ export const LoginStyle = StyleSheet.create({
         alignItems : "center",
     },
     buttonLog: {
-        height: "50%",
-        width: "35%",
+        height: 50,
         backgroundColor : '#003147',
         justifyContent : "center",
         alignItems: "center",
         borderRadius: 10,
         elevation: 10,
-        marginBottom: 10
+        margin: 10,
+        paddingHorizontal:20
     },
     buttonSign: {
         height: "50%",
@@ -64,7 +65,7 @@ export const LoginStyle = StyleSheet.create({
     input:{
         alignSelf: "center",
         width: '65%',
-        height : '16%',
+        height : 40,
         borderWidth: 0.4,
         borderColor: "grey",
         borderRadius: 5,
