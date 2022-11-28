@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Image, Text, View, ScrollView, } from 'react-native'
-import SuccessModif from '../../components/SucessModif/SuccessModif'
 
 import ProfileDiplome from '../../components/ProfileDiplome/ProfileDiplome'
 import ProfileDispo from '../../components/ProfileDispo/ProfileDispo'
@@ -92,16 +91,12 @@ export default function ProfileC() {
           source={require('../../assets/img/girl2bis.png')}
         />
       </View>
-
       <ScrollView style={ProfileStyle.botDiv}>
-
-
         <Text style={[ProfileStyle.textColor, ProfileStyle.title]}>Modifier mon profil</Text>
 
         <ProfileGenerale data={data} setData={setData} />
         <ProfileDiplome data={data} setData={setData} />
         <ProfileDispo data={data} setData={setData} />
-        {/* <SuccessModif /> */}
 
       </ScrollView>
     </View>

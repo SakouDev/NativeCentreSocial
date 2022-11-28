@@ -16,7 +16,6 @@ export const ProfileStyle = StyleSheet.create({
         height: "75%",
         paddingHorizontal: 20,
         paddingBottom: 300,
-
     },
     title: {
         fontSize: 20,

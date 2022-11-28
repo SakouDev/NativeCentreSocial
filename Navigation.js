@@ -27,6 +27,7 @@ import Candidat from "./src/pages/Candidat/Candidat";
 import Contact from "./src/pages/Contact/Contact";
 import SearchEmployeurs from "./src/pages/SearchEmployeurs/SearchEmployeurs";
 import Employeur from "./src/pages/Employeur/Employeur";
+import ProfileSuccessModif from "./src/pages/ProfileSucessModif/ProfileSuccessModif";
 
 export default function Navigation() {
 	const { userInfo, splashLoading } = useContext(AuthContext);
@@ -58,6 +59,7 @@ export default function Navigation() {
 								element={<ProfileDispo />}
 							/>
 						</Route>
+					<Route exact path="/successmodif" element={<ProfileSuccessModif />} />
 
 						{/* search a worker to contact */}
 						<Route

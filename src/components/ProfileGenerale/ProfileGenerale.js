@@ -203,11 +203,11 @@ export default function ProfileGenerale({ data, setData }) {
 				/>
 			</View>
 
-			<Pressable onPress={handleSubmit((dataCheck) => console.log(dataCheck))}>
+			{/* <Pressable onPress={handleSubmit((dataCheck) => console.log(dataCheck))}>
 				<Link to={"/home"} style={ProfileStyle.buttonLog}>
 					<Text style={ProfileStyle.textWhite}>Suivant</Text>
 				</Link>
-			</Pressable>
+			</Pressable> */}
 		</View>
 	);
 }

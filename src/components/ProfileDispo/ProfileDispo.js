@@ -59,7 +59,7 @@ export default function ProfileDispo({ data, setData }) {
             </View>
 
             <Pressable onPress={handleSubmit((dataCheck) => console.log(dataCheck))} >
-                <Link to={'/home'} style={ProfileDispoStyle.buttonLog}>
+                <Link to={'/successmodif'} style={ProfileDispoStyle.buttonLog}>
                     <Text style={ProfileDispoStyle.textWhite}>Confirmer les Changements</Text>
                 </Link>
             </Pressable>
